@@ -1,0 +1,1 @@
+# Yaya wallet webhook endpoint
