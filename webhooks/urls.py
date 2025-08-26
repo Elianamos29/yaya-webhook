@@ -3,5 +3,5 @@ from django.urls import path
 from .views import WebhookReceiver
 
 urlpatterns = [
-    path('webhook/', WebhookReceiver.as_view(), name='webhook_receiver'),
+    path('webhooks/yaya-wallet/', WebhookReceiver.as_view(), name='yaya-webhook-receiver'),
 ]
