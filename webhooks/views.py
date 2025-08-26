@@ -48,6 +48,11 @@ class WebhookReceiver(APIView):
             if not is_valid:
                 return self._error_response("Invalid signature", status.HTTP_400_BAD_REQUEST)
             
+            event_id = payload['id']
+            if WebhookEvent.objects.filter(event_id=event_id).exists():
+                logger.info(f"Webhook event {event_id} already processed, returning success")
+                return Response({'status': 'success', 'message': 'Event already processed'}, status=status.HTTP_200_OK)
+            
             webhook_event = self._create_webhook_event(payload, signature)
 
             self._process_webhook_async(webhook_event.id)
