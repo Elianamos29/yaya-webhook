@@ -1,4 +1,4 @@
-# YaYa Wallet Webhook Integration
+# YaYa Wallet Webhook
 
 A Django REST Framework implementation for handling YaYa Wallet webhook notifications with secure signature verification, async processing, and comprehensive testing.
 
@@ -27,7 +27,7 @@ A Django REST Framework implementation for handling YaYa Wallet webhook notifica
 
 1. **Clone the repository**
    ```bash
-   git clone github.com/Elianamos29/yaya-webhook
+   git clone https://github.com/Elianamos29/yaya-webhook.git
    cd yaya-webhook
    ```
 
@@ -61,6 +61,13 @@ A Django REST Framework implementation for handling YaYa Wallet webhook notifica
 6. **Run development server**
    ```bash
    python manage.py runserver
+   ```
+   
+7. **Run celery**
+   ```bash
+   docker run -d -p 6379:6379 redis:alpine #start redis, Or install locally
+
+   celery -A config worker --loglevel=info  # Basic worker
    ```
 
 ## Configuration
